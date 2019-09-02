@@ -37,6 +37,7 @@ colorPersonalizado.addEventListener('change',
 //Variables que guardan elementos del HTML
 let paleta = document.getElementById("paleta");
 let grillaPixeles= document.getElementById("grilla-pixeles");
+let indicadorDeColor= document.getElementById("indicador-de-color");
 
 
 //función que recorre variable nombreColores paragenerar la paleta de colores
@@ -49,8 +50,6 @@ function colores(){
     //console.log(nombreColores[i]);
   }
 }
-colores();
-
 //función que va a crear los pixeles de grilla-pixeles
 function crearGrillaPixeles(){
   for(let i=0;i<1750;i++){
@@ -60,4 +59,12 @@ function crearGrillaPixeles(){
     
   }
 }
+//función llamador CLICK sobre paleta de colores para el indicador-de-color
+paleta.addEventListener("click", modificarBackground);
+function modificarBackground(e){
+  let colorFondo= e.target.style.backgroundColor;
+  indicadorDeColor.style.backgroundColor= colorFondo;
+}
+//invocación de funciones
+colores();
 crearGrillaPixeles();
