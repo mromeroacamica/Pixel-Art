@@ -29,7 +29,7 @@ colorPersonalizado.addEventListener('change',
     // Se guarda el color de la rueda en colorActual
     colorActual = colorPersonalizado.value;
     // Completar para que cambie el indicador-de-color al colorActual
-
+    indicadorDeColor.style.backgroundColor= colorActual;
 
   })
 );
@@ -38,8 +38,7 @@ colorPersonalizado.addEventListener('change',
 let paleta = document.getElementById("paleta");
 let grillaPixeles= document.getElementById("grilla-pixeles");
 let indicadorDeColor= document.getElementById("indicador-de-color");
-let pixelesGrillaPixeles= document.getElementsByClassName("classPixeles");
-
+let cuerpo =document.getElementsByTagName("body");
 
 
 //función que recorre variable nombreColores paragenerar la paleta de colores
@@ -74,6 +73,18 @@ function modificarBackgroundColor(e){
   let colorFondoIndicador= indicadorDeColor.style.backgroundColor;
   e.target.style.backgroundColor=colorFondoIndicador;
 }
+/*//Funciones mouse apretado o no
+var mouseApretado=0;
+cuerpo.addEventListener("mousedown",modificarApretado);
+function modificarApretado(){
+  mouseApretado="apretado";
+  console.log(mouseApretado);
+}
+cuerpo.addEventListener("mouseup",modificarNoApretado);
+function mouseNoApretado(){
+  mouseApretado="no apretado"
+  console.log(mouseApretado);
+}*/
 //invocación de funciones
 colores();
 crearGrillaPixeles();
