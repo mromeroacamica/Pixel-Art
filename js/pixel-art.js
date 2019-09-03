@@ -39,6 +39,8 @@ let paleta = document.getElementById("paleta");
 let grillaPixeles= document.getElementById("grilla-pixeles");
 let indicadorDeColor= document.getElementById("indicador-de-color");
 let cuerpo =document.getElementsByTagName("body");
+let $borrarTodo = $("#borrar");
+let $grillaPixeles=$("#grilla-pixeles");
 
 
 //función que recorre variable nombreColores paragenerar la paleta de colores
@@ -78,13 +80,13 @@ var mouseApretado=0;
 addEventListener("mousedown",modificarApretado);
 function modificarApretado(e){
   mouseApretado="apretado";
-  console.log(mouseApretado);
+  //console.log(mouseApretado);
   }
   
 addEventListener("mouseup",modificarNoApretado);
 function modificarNoApretado(){
   mouseApretado="no apretado";
-  console.log(mouseApretado);
+  //console.log(mouseApretado);
 }
 //Pintar en movimiento
 grillaPixeles.addEventListener("mouseover", modificarBackgroundColor00);
@@ -94,7 +96,10 @@ function modificarBackgroundColor00(e){
   e.target.style.backgroundColor=colorFondoIndicador;
   }
 }
-
+//Función para hacer desaparecer lo dibujado con el Boton "Borrar Todo"
+$borrarTodo.click(function(){
+$grillaPixeles.children().animate({"backgroundColor":"white"},1500);
+});
 
 //invocación de funciones
 colores();
