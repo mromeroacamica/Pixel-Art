@@ -73,18 +73,29 @@ function modificarBackgroundColor(e){
   let colorFondoIndicador= indicadorDeColor.style.backgroundColor;
   e.target.style.backgroundColor=colorFondoIndicador;
 }
-/*//Funciones mouse apretado o no
+//Funciones mouse apretado o no
 var mouseApretado=0;
-cuerpo.addEventListener("mousedown",modificarApretado);
-function modificarApretado(){
+addEventListener("mousedown",modificarApretado);
+function modificarApretado(e){
   mouseApretado="apretado";
   console.log(mouseApretado);
-}
-cuerpo.addEventListener("mouseup",modificarNoApretado);
-function mouseNoApretado(){
-  mouseApretado="no apretado"
+  }
+  
+addEventListener("mouseup",modificarNoApretado);
+function modificarNoApretado(){
+  mouseApretado="no apretado";
   console.log(mouseApretado);
-}*/
+}
+//Pintar en movimiento
+grillaPixeles.addEventListener("mouseover", modificarBackgroundColor00);
+function modificarBackgroundColor00(e){
+  if(mouseApretado==="apretado"){
+  let colorFondoIndicador= indicadorDeColor.style.backgroundColor;
+  e.target.style.backgroundColor=colorFondoIndicador;
+  }
+}
+
+
 //invocación de funciones
 colores();
 crearGrillaPixeles();
