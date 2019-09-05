@@ -1,7 +1,6 @@
 // No modifiques estas funciones a menos que sepas MUY BIEN lo que estas haciendo!
-//funcion llamado guardar
-let guardar = document.getElementById("guardar");
-guardar.addEventListener("click", guardarPixelArt);
+
+
 // Abre una ventana para guardar nuestro arte en un archivo pixel-art.png
 function guardarPixelArt() {
   html2canvas($("#grilla-pixeles") , {
@@ -17,7 +16,14 @@ function guardarPixelArt() {
 // Carga a un superheroe predefinido
 function cargarSuperheroe(superheroe) {
   var $pixeles = $("#grilla-pixeles div");
+  // console.log(superheroe)
   for (var i = 0; i < superheroe.length; i++) {
+    // console.log($pixeles[i]);
     $pixeles[i].style.backgroundColor = superheroe[i];
+    console.log(superheroe[i]);
   }
+// console.log($pixeles);
 }
+
+// cargarSuperheroe(batman);
+// console.log(batman);

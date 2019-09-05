@@ -42,6 +42,10 @@ let cuerpo =document.getElementsByTagName("body");
 let $borrarTodo = $("#borrar");
 let $grillaPixeles=$("#grilla-pixeles");
 
+let guardar = document.getElementById("guardar");
+
+
+
 
 //función que recorre variable nombreColores paragenerar la paleta de colores
 function colores(){
@@ -54,15 +58,19 @@ function colores(){
   }
 }
 //función que va a crear los pixeles de grilla-pixeles
-function crearGrillaPixeles(){
-  for(let i=0;i<1750;i++){
-    let pixeles=document.createElement("div");
-    pixeles.className="classPixeles";
-    grillaPixeles.appendChild(pixeles);
-    //console.log("1");
-    
+
+  
+  function crearGrillaPixeles(){
+    for(let i=0;i<1750;i++){
+      let pixeles=document.createElement("div");
+      pixeles.className="classPixeles";
+      grillaPixeles.appendChild(pixeles);
+      //console.log("1");
+      
+    }
   }
-}
+  
+
 //función llamador CLICK sobre paleta de colores para el indicador-de-color
 paleta.addEventListener("click", modificarBackground);
 function modificarBackground(e){
@@ -101,6 +109,32 @@ $borrarTodo.click(function(){
 $grillaPixeles.children().animate({"backgroundColor":"white"},1500);
 });
 
+//funcion llamado guardar
+guardar.addEventListener("click", guardarPixelArt);
+
+
+
+//función llamado copiar las imagenes superheroes
+$('.imgs li img').click(function(){
+  var $superheroeImg = $(this).attr('id'); // id de la imagen clickeada$
+  console.log($superheroeImg);
+  console.log(flash);
+  let superheroeTemporal;
+  if($superheroeImg==="batman"){
+superheroeTemporal= batman;
+  }else if($superheroeImg==="wonder"){
+    superheroeTemporal=wonder;
+  }else if($superheroeImg==="flash"){
+    superheroeTemporal=flash;
+  }else if($superheroeImg==="invisible"){
+    superheroeTemporal=invisible;
+  }
+  cargarSuperheroe(superheroeTemporal);
+})
+
 //invocación de funciones
+window.onload = function(){
 colores();
 crearGrillaPixeles();
+}
+
